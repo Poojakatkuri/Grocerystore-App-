@@ -17,6 +17,10 @@ import io.github.jan.supabase.storage.storage
 import javax.inject.Singleton
 import kotlinx.serialization.json.Json
 
+// Supabase SDK client, shared by the whole app. Still used for:
+//   - Auth (sign up / sign in / sign out) and Storage (meal image uploads)
+//   - the remaining tables (orders, users, meal plans) through Postgrest
+// Products and categories now use Retrofit instead: see NetworkModule (FLOW step 1).
 @Module
 @InstallIn(SingletonComponent::class)
 object SupabaseModule {
@@ -36,6 +40,7 @@ object SupabaseModule {
 
     @Provides
     @Singleton
+    // Postgrest = the "database tables" part of Supabase. Repositories inject this to read/write tables.
     fun providePostgrest(client: SupabaseClient): Postgrest = client.postgrest
 
     @Provides

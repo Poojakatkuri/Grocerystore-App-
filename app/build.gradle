@@ -111,6 +111,7 @@ dependencies {
     implementation libs.lottie.compose
 
     implementation libs.bundles.retrofit
+    implementation libs.retrofit.converter.kotlinx
     implementation libs.gson
     implementation libs.moshi
     implementation libs.kotlin.coroutines.play.services

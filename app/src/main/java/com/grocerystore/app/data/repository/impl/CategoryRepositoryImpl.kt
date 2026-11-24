@@ -3,25 +3,23 @@ package com.grocerystore.app.data.repository.impl
 import com.grocerystore.app.data.database.dao.CategoryDao
 import com.grocerystore.app.data.database.entities.Category
 import com.grocerystore.app.data.database.entities.asDomainModel
-import com.grocerystore.app.data.network.RemoteTable
+import com.grocerystore.app.data.network.SupabaseApi
 import com.grocerystore.app.data.network.dto.CategoriesDto
 import com.grocerystore.app.data.repository.CategoryRepository
-import io.github.jan.supabase.postgrest.Postgrest
 import javax.inject.Inject
 import kotlinx.coroutines.flow.map
 import timber.log.Timber
 
 class CategoryRepositoryImpl @Inject constructor(
     private val categoryDao: CategoryDao,
-    private val supabasePostgrest: Postgrest
+    private val supabaseApi: SupabaseApi
 ) :
     CategoryRepository {
 
     override suspend fun refreshDatabase() {
         try {
-            val result = supabasePostgrest[RemoteTable.Categories.tableName]
-                .select()
-            val res = result.decodeList<CategoriesDto>()
+            // Download the "categories" table with Retrofit (see SupabaseApi), then save it into Room.
+            val res: List<CategoriesDto> = supabaseApi.getCategories()
             val categories = res.map { it.asEntity() }
             categoryDao.insertAll(categories)
         } catch (e: Exception) {
