@@ -9,6 +9,8 @@ import com.grocerystore.app.data.database.entities.Product
 import com.grocerystore.app.utilities.PRODUCT_TABLE
 import kotlinx.coroutines.flow.Flow
 
+// FLOW step 7b (database queries): Room generates the SQL code for these functions.
+// Functions returning Flow are "live": Room re-emits whenever the table changes.
 @Dao
 interface ProductDao {
 

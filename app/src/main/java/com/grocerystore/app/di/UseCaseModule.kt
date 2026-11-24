@@ -46,6 +46,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+// FLOW step 8b (wiring): same idea for use cases, interface -> implementation.
 /**
  * Binds each use-case interface to its implementation.
  * Implementations declare their own dependencies with `@Inject constructor`.

@@ -38,12 +38,16 @@ import com.grocerystore.app.R
 import kotlinx.coroutines.launch
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 
+// FLOW step 13 (Compose screen): draws the UI from state and sends user events to the ViewModel.
+// "State flows down, events flow up": the screen never changes data itself.
 @Composable
 fun ProductDetailScreen(
     modifier: Modifier = Modifier,
+    // hiltViewModel() gets the ViewModel tied to the hosting Fragment, built by Hilt.
     viewModel: ProductDetailViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit
 ) {
+    // Observe state: whenever product changes, Compose re-runs only the parts that read it.
     val product = viewModel.product.collectAsState().value
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -98,6 +102,7 @@ fun ProductDetailScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
+                // Observe quantity; +/- buttons below send events up to the ViewModel.
                 val quantity = viewModel.quantity.collectAsState().value
                 IconButton(onClick = {
                     viewModel.decreaseQty()
@@ -133,6 +138,7 @@ fun ProductDetailScreen(
                 modifier = modifier
                     .fillMaxWidth(),
                 onClick = {
+                    // Event up: tell the ViewModel what happened (step 12 ACTION).
                     viewModel.addToCart()
                     scope.launch {
                         snackbarHostState.showSnackbar(

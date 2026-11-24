@@ -34,6 +34,8 @@ class OrderRepositoryImpl @Inject constructor(
         }
     }
 
+    // FLOW step 14 (action reaches the data layer): "Add to Basket" ends here and saves the item
+    // into the local cart table. sendOrderToServer() uploads the whole order later, at checkout.
     override suspend fun addLineItem(lineItem: LineItem) {
         try {
             lineItemDao.insert(lineItem)

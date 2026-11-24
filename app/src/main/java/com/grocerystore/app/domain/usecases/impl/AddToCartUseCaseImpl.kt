@@ -11,6 +11,7 @@ class AddToCartUseCaseImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : AddToCartUseCase {
     override suspend fun invoke(input: AddToCartUseCase.Input): AddToCartUseCase.Output {
+        // Run the database write on the IO thread (the dispatcher is injected so tests can replace it).
         withContext(ioDispatcher) {
             orderRepository.addLineItem(input.lineItem)
         }

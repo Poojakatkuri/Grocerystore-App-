@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 import com.grocerystore.app.domain.models.ProductModel
 import com.grocerystore.app.utilities.PRODUCT_TABLE
 
+// FLOW step 7 (local database model): one row of the "product" table in Room (the phone database).
 @Entity(tableName = PRODUCT_TABLE)
 data class Product(
     @PrimaryKey
@@ -38,6 +39,7 @@ fun List<Product>.asDomainModel(): List<ProductModel> {
     }
 }
 
+// Converter: database entity -> clean domain model used by use cases, ViewModels and screens.
 fun Product.asDomainModel(): ProductModel {
     return ProductModel(
         id = this.id,

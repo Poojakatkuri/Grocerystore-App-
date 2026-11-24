@@ -18,6 +18,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+// FLOW step 8 (wiring): tells Hilt which class to create when someone asks for a repository interface.
+// @Singleton = one shared instance for the whole app.
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {

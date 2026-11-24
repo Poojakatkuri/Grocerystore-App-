@@ -9,6 +9,9 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import timber.log.Timber
 
+// FLOW step 4 (fetch trigger): WorkManager runs this job once a day in the background
+// (scheduled in GroceriesStoreApplication). Onboarding also triggers the same refresh on first launch.
+// Hilt injects the use case through the constructor (@HiltWorker + @AssistedInject).
 @HiltWorker
 class RefreshDatabaseWork @AssistedInject constructor(
     @Assisted appContext: Context,

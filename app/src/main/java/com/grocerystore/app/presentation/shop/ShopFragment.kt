@@ -26,6 +26,9 @@ class ShopFragment : Fragment() {
         }
     }
 
+    // FLOW step 10 (navigation): the Shop screen only calls a lambda with the product id;
+    // the Fragment decides where to go. Safe Args generates ShopFragmentDirections from navigation.xml
+    // and passes "id" as an argument to ProductDetailFragment.
     private fun navigateToProductDetail(productId: String) {
         val direction = ShopFragmentDirections.actionShopFragmentToProductDetailFragment(
             productId

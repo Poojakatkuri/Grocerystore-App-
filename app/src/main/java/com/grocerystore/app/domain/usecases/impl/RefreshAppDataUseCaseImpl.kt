@@ -15,6 +15,7 @@ class RefreshAppDataUseCaseImpl @Inject constructor(
     private val recipeRepository: RecipeRepository,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : RefreshAppDataUseCase {
+    // FLOW step 4b: asks every repository to download fresh data, on the IO (background) thread.
     override suspend fun invoke(input: Unit) {
         withContext(ioDispatcher) {
             categoryRepository.refreshDatabase()
