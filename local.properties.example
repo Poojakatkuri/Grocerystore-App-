@@ -1,0 +1,18 @@
+## Copy this file to local.properties and fill in your own values.
+## local.properties is git-ignored: never commit real keys.
+
+## Android SDK location (Android Studio fills this in automatically)
+# sdk.dir=/path/to/Android/sdk
+
+## Supabase project used by the "prod" flavor
+SUPABASE_URL=YOUR_SUPABASE_URL
+API_KEY=YOUR_SUPABASE_ANON_KEY
+SECRET=YOUR_SUPABASE_SECRET
+
+## Supabase project used by the "dev" flavor
+SUPABASE_URL_DEBUG=YOUR_SUPABASE_URL_DEBUG
+API_KEY_DEBUG=YOUR_SUPABASE_ANON_KEY_DEBUG
+SECRET_DEBUG=YOUR_SUPABASE_SECRET_DEBUG
+
+## RapidAPI key for the Tasty recipes API (meal planning)
+RAPID_API_KEY=YOUR_RAPID_API_KEY

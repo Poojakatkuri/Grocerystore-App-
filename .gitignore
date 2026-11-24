@@ -1,0 +1,28 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/*
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+
+local.properties
+
+# IDE settings in any module
+.idea/
+
+# Kotlin compiler caches
+.kotlin/
+
+# Local secrets and per-developer Firebase config (never commit)
+google-services.json
+*.jks
+*.keystore

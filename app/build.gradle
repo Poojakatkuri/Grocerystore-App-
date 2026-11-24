@@ -1,0 +1,182 @@
+plugins {
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
+    alias libs.plugins.android.application
+    alias libs.plugins.ksp
+    alias libs.plugins.hilt
+    alias libs.plugins.ktlint.gradle
+    alias libs.plugins.gms apply false
+    alias libs.plugins.navigation.safeargs
+    alias libs.plugins.compose.compiler
+
+    id "org.jetbrains.kotlin.plugin.serialization" version "1.7.0"
+}
+
+// Firebase is optional: the Google Services plugin is applied only when you add your own
+// google-services.json (in app/, app/src/dev/ or app/src/prod/).
+if (['google-services.json', 'src/dev/google-services.json', 'src/prod/google-services.json']
+        .any { file(it).exists() }) {
+    apply plugin: libs.plugins.gms.get().pluginId
+}
+
+// Keys come from local.properties (not committed). See local.properties.example.
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withDataInputStream { localProperties.load(it) }
+}
+def localProperty = { String key -> localProperties.getProperty(key, "") }
+
+android {
+    compileSdk 35
+    defaultConfig {
+        applicationId "com.pooja.groceriesstore"
+        minSdkVersion 29
+        targetSdkVersion 35
+        versionCode 5
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "API_KEY", "\"${localProperty("API_KEY")}\"")
+        buildConfigField("String", "SECRET", "\"${localProperty("SECRET")}\"")
+        buildConfigField("String", "SUPABASE_URL", "\"${localProperty("SUPABASE_URL")}\"")
+        buildConfigField("String", "RAPID_API_KEY", "\"${localProperty("RAPID_API_KEY")}\"")
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            dimension "environment"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            buildConfigField("String", "API_KEY", "\"${localProperty("API_KEY_DEBUG")}\"")
+            buildConfigField("String", "SECRET", "\"${localProperty("SECRET_DEBUG")}\"")
+            buildConfigField("String", "SUPABASE_URL", "\"${localProperty("SUPABASE_URL_DEBUG")}\"")
+        }
+        prod {
+            dimension "environment"
+            applicationIdSuffix ".prod"
+            versionNameSuffix "-prod"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.5.14"
+    }
+    namespace 'com.pooja.groceriesstore'
+}
+composeCompiler {
+    // Configure compose compiler options if required
+    enableStrongSkippingMode = true
+}
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation libs.bundles.androidx
+    implementation libs.bundles.android.ui
+
+    implementation libs.kotlin.stdlib
+
+    implementation libs.legacy.support.v4
+
+    implementation libs.timber
+
+    implementation libs.bundles.room
+    kapt libs.room.compiler
+
+    // Coil An image loading library
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+    implementation libs.lottie
+    implementation libs.lottie.compose
+
+    implementation libs.bundles.retrofit
+    implementation libs.gson
+    implementation libs.moshi
+    implementation libs.kotlin.coroutines.play.services
+    implementation(libs.kotlinx.immutable)
+
+    implementation platform(libs.firebase.bom)
+    implementation libs.bundles.firebase
+    implementation(libs.ktor.client.cio)
+//    implementation(libs.postgrest.kt.android)
+    implementation libs.ktor.client.android
+    implementation libs.ktor.utils.jvm
+    implementation libs.ktor.client.logging.jvm
+    implementation(libs.ktor.client.core)
+
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.1.4"))
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+    implementation("io.github.jan-tennert.supabase:auth-kt")
+    implementation("io.github.jan-tennert.supabase:storage-kt")
+    implementation("io.github.jan-tennert.supabase:compose-auth-ui")
+
+
+    def composeBom = platform('androidx.compose:compose-bom:2023.09.02')
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    implementation("androidx.compose.runtime:runtime")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.foundation:foundation-layout")
+    implementation("androidx.compose.material:material")
+    implementation("androidx.compose.runtime:runtime-livedata")
+    implementation("androidx.compose.ui:ui-tooling")
+
+    // Hilt dependency injection
+    implementation libs.hilt.android
+    ksp libs.hilt.compiler
+    implementation libs.androidx.hilt.viewmodel.compose
+    implementation libs.androidx.hilt.work
+    ksp libs.androidx.hilt.compiler
+
+    implementation libs.accompanist.themeadapter.material
+    implementation libs.androidx.material3
+    testImplementation libs.mockito.core
+
+    debugImplementation libs.androidx.ui.tooling
+    implementation libs.androidx.ui.tooling.preview
+    def nav_version = "2.5.3"
+    implementation(libs.androidx.navigation.compose)
+    implementation libs.androidx.material.icons.extended
+    testImplementation libs.mockito.kotlin
+
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.runner
+    androidTestImplementation libs.androidx.test.arch.core
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '7.5'
+}
+
+ktlint {
+//    android.set(true)
+//    reporters {
+//        reporter(ReporterType.PLAIN)
+//        reporter(ReporterType.HTML)
+//    }
+    android = false
+    ignoreFailures = true
+}
