@@ -6,7 +6,7 @@
     app:startDestination="@id/shopFragment">
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.pooja.groceriesstore.presentation.account.AccountFragment"
+        android:name="com.grocerystore.app.presentation.account.AccountFragment"
         android:label="fragment_account">
         <action
             android:id="@+id/action_accountFragment_to_updateProfileFragment"
@@ -30,13 +30,13 @@
     </fragment>
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="com.pooja.groceriesstore.presentation.mealplanning.overview.OverviewFragment"
+        android:name="com.grocerystore.app.presentation.mealplanning.overview.OverviewFragment"
         android:label="fragment_overview">
 
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.pooja.groceriesstore.presentation.cart.CartFragment"
+        android:name="com.grocerystore.app.presentation.cart.CartFragment"
         android:label="fragment_cart">
         <action
             android:id="@+id/action_cartFragment_to_checkOutFragment"
@@ -45,7 +45,7 @@
 
     <fragment
         android:id="@+id/checkOutFragment"
-        android:name="com.pooja.groceriesstore.presentation.checkout.CheckOutFrag"
+        android:name="com.grocerystore.app.presentation.checkout.CheckOutFrag"
         android:label="CheckOutFragment"
         tools:layout="@layout/fragment_check_out">
         <argument
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.pooja.groceriesstore.presentation.explore.ExploreFragment"
+        android:name="com.grocerystore.app.presentation.explore.ExploreFragment"
         android:label="fragment_explore"
         tools:layout="@layout/fragment_explore">
         <action
@@ -74,11 +74,11 @@
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.pooja.groceriesstore.presentation.favourite.FavouriteFragment"
+        android:name="com.grocerystore.app.presentation.favourite.FavouriteFragment"
         android:label="fragment_favourite" />
     <fragment
         android:id="@+id/shopFragment"
-        android:name="com.pooja.groceriesstore.presentation.shop.ShopFragment"
+        android:name="com.grocerystore.app.presentation.shop.ShopFragment"
         android:label="fragment_shop">
         <action
             android:id="@+id/action_shopFragment_to_productDetailFragment"
@@ -89,17 +89,17 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.pooja.groceriesstore.presentation.MainFragment"
+        android:name="com.grocerystore.app.presentation.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.pooja.groceriesstore.MainActivity"
+        android:name="com.grocerystore.app.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="com.pooja.groceriesstore.presentation.productdetail.ProductDetailFragment"
+        android:name="com.grocerystore.app.presentation.productdetail.ProductDetailFragment"
         android:label="fragment_product_detail">
         <argument
             android:name="id"
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/deliveryFragment"
-        android:name="com.pooja.groceriesstore.presentation.delivery.DeliveryFragment"
+        android:name="com.grocerystore.app.presentation.delivery.DeliveryFragment"
         android:label="DeliveryFragment">
         <action
             android:id="@+id/action_deliveryFragment_to_checkOutFragment"
@@ -121,7 +121,7 @@
     </fragment>
     <fragment
         android:id="@+id/productListFragment"
-        android:name="com.pooja.groceriesstore.presentation.productlist.ProductListFragment"
+        android:name="com.grocerystore.app.presentation.productlist.ProductListFragment"
         android:label="ProductListFragment">
         <argument
             android:name="categoryName"
@@ -139,15 +139,15 @@
     </fragment>
     <fragment
         android:id="@+id/updateProfileFragment"
-        android:name="com.pooja.groceriesstore.presentation.updateprofile.UpdateProfileFragment"
+        android:name="com.grocerystore.app.presentation.updateprofile.UpdateProfileFragment"
         android:label="UpdateProfileFragment" />
     <fragment
         android:id="@+id/notificationSettingsFragment"
-        android:name="com.pooja.groceriesstore.presentation.notificationsettings.NotificationSettingsFragment"
+        android:name="com.grocerystore.app.presentation.notificationsettings.NotificationSettingsFragment"
         android:label="NotificationSettingsFragment" />
     <fragment
         android:id="@+id/orderHistoryFragment"
-        android:name="com.pooja.groceriesstore.presentation.orderhistory.OrderHistoryFragment"
+        android:name="com.grocerystore.app.presentation.orderhistory.OrderHistoryFragment"
         android:label="OrderHistoryFragment" />
 
 </navigation>

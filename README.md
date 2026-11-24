@@ -63,7 +63,7 @@ Copy `local.properties.example` to `local.properties` and fill in your own value
 
 ### 3. Firebase (optional)
 
-Push notifications and analytics use Firebase. The app builds and runs without it. To enable it, create a Firebase project for the app IDs `com.pooja.groceriesstore.dev` / `com.pooja.groceriesstore.prod` and place your `google-services.json` in `app/` (or `app/src/dev/` and `app/src/prod/`). These files are git-ignored.
+Push notifications and analytics use Firebase. The app builds and runs without it. To enable it, create a Firebase project for the app IDs `com.grocerystore.app.dev` / `com.grocerystore.app.prod` and place your `google-services.json` in `app/` (or `app/src/dev/` and `app/src/prod/`). These files are git-ignored.
 
 ### 4. Build
 
