@@ -155,7 +155,7 @@ private fun ProductListPreview() {
                     id = "TcF68MpGmIGiq5LOvF7u",
                     name = "Chili, Local Grass-Fed Beef",
                     price = 5.8,
-                    image = "https://firebasestorage.googleapis.com/v0/b/groceries-store-ad0eb.appspot.com/o/Vegetables%2Fcsm_peppers-plp-desktop_a9c6971df1.jpg?alt=media&token=f986caa0-d65c-4c76-8186-ff75abd6db1e",
+                    image = "https://www.themealdb.com/images/ingredients/Red%20Pepper.png",
                     description = "Chili doesn't get much meatier than this; this is the kind you dream about for game days and crisp winter nights.",
                     nutrition = "Chili peppers (Capsicum annuum) are the fruits of Capsicum pepper plants, notable for their hot flavor.  They are members of the nightshade family, related to bell peppers and tomatoes. Many varieties of chili peppers exist, such as cayenne and jalapeño.  Chili peppers are primarily used as a spice and can be cooked or dried and powdered. Powdered, red chili peppers are known as paprika."
                 ),
@@ -163,7 +163,7 @@ private fun ProductListPreview() {
                     id = "bhuLZpaY5yqEssty5V7m",
                     name = "Grass-Fed Local Beef Brisket",
                     price = 3.9,
-                    image = "https://firebasestorage.googleapis.com/v0/b/groceries-store-ad0eb.appspot.com/o/Vegetables%2Fcsm_spaghetti-squash-overview_b846b6fa65.jpg?alt=media&token=1b68952b-26f0-489a-b979-e23a60b52c45",
+                    image = "https://www.themealdb.com/images/ingredients/Spinach.png",
                     description = "Braise this lean cut in a seasoned broth alongside vegetables, and you'll be rewarded with the ultimate in comfort food.",
                     nutrition = "Beef is the meat of cattle (Bos taurus).  It is categorized as red meat — a term used for the meat of mammals, which contains higher amounts of iron than chicken or fish.  Usually eaten as roasts, ribs, or steaks, beef is also commonly ground or minced. Patties of ground beef are often used in hamburgers.  Processed beef products include corned beef, beef jerky, and sausages."
                 )

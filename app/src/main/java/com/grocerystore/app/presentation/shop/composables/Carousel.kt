@@ -149,10 +149,11 @@ fun Carousel(modifier: Modifier = Modifier) {
     }
 }
 
+// Home banner images: free meal photos from TheMealDB (https://www.themealdb.com).
 private val bannerImages = listOf(
-    "https://firebasestorage.googleapis.com/v0/b/shopee-93233.appspot.com/o/product_image1664736648315.png?alt=media&token=2ca8be3a-37c3-4c73-b966-dcf3129958fd",
-    "https://firebasestorage.googleapis.com/v0/b/shopee-93233.appspot.com/o/product_image1664737376188.png?alt=media&token=01123878-812e-4b2b-be91-d9c05b1e9b98",
-    "https://firebasestorage.googleapis.com/v0/b/shopee-93233.appspot.com/o/product_image1664737421330.png?alt=media&token=66f45505-ce68-4583-b018-2d2855aa714e"
+    "https://www.themealdb.com/images/media/meals/tbj1bs1764118062.jpg",
+    "https://www.themealdb.com/images/media/meals/ei21r61764365935.jpg",
+    "https://www.themealdb.com/images/media/meals/02s6gc1763799560.jpg"
 )
 
 @Preview

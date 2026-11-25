@@ -59,7 +59,9 @@ Copy `local.properties.example` to `local.properties` and fill in your own value
 
 1. Create a project at [supabase.com](https://supabase.com).
 2. In the SQL editor, run the scripts in `supabase/postgrest/` in order (`step_1`, `step_2`, `step_3`).
-3. Replace the placeholder image URLs in the `products` and `categories` tables with real, publicly reachable images (for example from a public Supabase Storage bucket). The seed data uses `example.com` placeholders, which do not load.
+3. Already set up the database with an older version of these scripts? Run `step_4_update_images.sql` once to replace the old placeholder image links.
+
+Product, category and home-banner images are loaded from [TheMealDB](https://www.themealdb.com), whose images are free for development and educational use. For a commercial release, host your own images (for example in a public Supabase Storage bucket) and update the `image` columns.
 
 ### 3. Firebase (optional)
 

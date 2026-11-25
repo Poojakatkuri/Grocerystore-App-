@@ -102,7 +102,7 @@ private fun ProductPreview() {
             id = "TcF68MpGmIGiq5LOvF7u",
             name = "Chili, Local Grass-Fed Beef",
             price = 5.8,
-            image = "https://firebasestorage.googleapis.com/v0/b/groceries-store-ad0eb.appspot.com/o/Vegetables%2Fcsm_peppers-plp-desktop_a9c6971df1.jpg?alt=media&token=f986caa0-d65c-4c76-8186-ff75abd6db1e",
+            image = "https://www.themealdb.com/images/ingredients/Red%20Pepper.png",
             description = "Chili doesn't get much meatier than this; this is the kind you dream about for game days and crisp winter nights.",
             nutrition = "Chili peppers (Capsicum annuum) are the fruits of Capsicum pepper plants, notable for their hot flavor.  They are members of the nightshade family, related to bell peppers and tomatoes. Many varieties of chili peppers exist, such as cayenne and jalapeño.  Chili peppers are primarily used as a spice and can be cooked or dried and powdered. Powdered, red chili peppers are known as paprika."
         ),
